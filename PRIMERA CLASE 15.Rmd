@@ -1,0 +1,46 @@
+---
+title: "RBIO"
+author: "JOYCITA"
+date: '2023-02-15'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Operaciones Basicas
+Las operaciones de matemáticas,lógica y de asignación
+$$
+\hat{x}=\frac{\Sigma_{i=1}^{x_i}}{n}
+$$
+
+```{r Vector}
+x=c(1:100)
+x
+```
+```{r}
+xi= sum(x)/length(x)
+xi
+```
+Vectores con datos ausentes 
+```{r Vector2}
+x=c(1:10, NaN, 10:-20, NaN,27)
+x
+```
+```{r}
+xi= sum(x,na.rm = TRUE)/length(x) ##na.rm para remover los datos ausentes, si pongo la condición FALSE me sale NaN porque no me remueve los datos. 
+xi
+```
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+

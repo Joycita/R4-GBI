@@ -2,7 +2,7 @@
 title: "RBIO"
 author: "JOYCITA"
 date: '2023-02-15'
-output: html_document
+output: html_document ##Puedo cambiar a word colocando word_document, si quiero pdf debo instalar miketxt
 ---
 
 ```{r setup, include=FALSE}
@@ -41,6 +41,7 @@ You can also embed plots, for example:
 ```{r pressure, echo=FALSE}
 plot(pressure)
 ```
+
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 

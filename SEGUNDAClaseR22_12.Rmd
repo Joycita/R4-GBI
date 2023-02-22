@@ -1,0 +1,10 @@
+---
+title: "Segunda Clase R22_2"
+author: "Joyce Catheryn"
+date: "22/2/2023"
+output: html_document
+---
+Trabajar en colab con R se debe ingresar a colab.to/r y cargar alguna librería de R para verificar. 
+Posterior cargamos la data(mtcars) y realizamos un head(mtcars) luego un diagrama de correlación m = cor (matcars) y generamos , luego un heatmap(m). 
+
+

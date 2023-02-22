@@ -8,13 +8,20 @@ output: html_document
 
 ## Assignment 1
 Utilizando la data *who* que se puede cargar con **data("who")**. Esta tabla recoge datos sobre casos reportados de tuberculosis en el mundo. Construya un código para que se vea la siguiente figura. Que contiene: 
-- Datos de niñas y niños entre 0 y 14 años
-- Datos del año 1996 en adelante (1996-2012)
-- Geometría de nube de puntos
-- Geometría de regresión lineal
-- Ecuación de la regresión de la regreseión y el coeficiente de determinación\(R2_{adj}\)
-- Coloración por años
-*Requiere usar las librerias*:ggplot2,ggpubr,ggpmisc,dplyr and tidyverse. 
+
+-Datos de niñas y niños entre 0 y 14 años
+
+-Datos del año 1996 en adelante (1996-2012)
+
+-Geometría de nube de puntos
+
+-Geometría de regresión lineal
+
+-Ecuación de la regresión de la regreseión y el coeficiente de determinación \(R2_{adj}\)
+
+-Coloración por años
+
+-*Requiere usar las librerias*:ggplot2,ggpubr,ggpmisc,dplyr and tidyverse. 
 
 library(ggplot2); library(ggpubr); library(ggpmisc), library(dplyr) ##Instalar las librerías
 
@@ -22,8 +29,8 @@ library(ggplot2); library(ggpubr); library(ggpmisc), library(dplyr) ##Instalar l
 ```{r data, echo=TRUE}
 data("who") #Ver la data Who
 ```
-formula <- y~x
-```{r BIOINFORMATIC, echo=TRUE, fig.height=16, fig.width= 12}
+
+```{r BIOINFORMATIC, echo=TRUE, fig.height=10, fig.width= 12}
 library(tidyverse); library(ggplot2);library(ggpubr);library(ggpmisc);library(dplyr)
 data("who")
 df=who %>% filter(year >=1996, year<=2012) %>%
@@ -33,10 +40,10 @@ df=who %>% filter(year >=1996, year<=2012) %>%
   theme_classic() + theme(legend.position="none") + 
   labs(x= "Positive cases of TB in girls from 0 to 14 years", 
        y="Positive cases of TB in boys from 0 to 14 years") +
-  scale_x_continuous(trans = 'log10') + 
-  scale_y_continuous(trans = 'log10') + 
+  scale_x_log10() + 
+  scale_y_log10()+ 
   stat_poly_eq(use_label(c("eq", "adj.R2")), coef.digits = 2, 
-               label.y.npc=1.0, formula= formula, size= 3) 
+               label.y.npc= 1, formula= y~x, size= 3, label.x.npc = 0.5) 
 df
 ggsave(df, filename = "dataWHO.png", width = 15, height = 15, dpi=300)
 ```
